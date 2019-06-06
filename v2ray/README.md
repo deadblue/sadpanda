@@ -70,7 +70,11 @@ openssl x509 -req -in server_req.pem -out server_cert.pem \
 
 ```
 
-这里一共生成了6个文件。其中`ca_req.pem`和`server_req.pem`是中间过程的过渡文件，可以删除。如果不需要使用同一个CA签发其他证书，那么`ca_key.pem`也可以删除。
+这里一共生成了6个文件。
+
+其中`ca_req.pem`和`server_req.pem`是中间过程的过渡文件，可以删除。
+
+如果不需要使用同一个CA签发其他证书，那么`ca_key.pem`也可以删除。
 
 剩下3个文件的用途如下：
 
@@ -92,7 +96,7 @@ openssl x509 -req -in server_req.pem -out server_cert.pem \
 **Apache配置**
 
 ```
-# 启用以下4个模块
+# 首先需要取保以下模块已经启用：
 #   ssl_module
 #   proxy_module
 #   proxy_http_module
@@ -100,7 +104,7 @@ openssl x509 -req -in server_req.pem -out server_cert.pem \
 
 <VirtualHost *:443>
 
-	# 配置域名
+    # 配置域名
     ServerName "foo.bar"
 
     # 配置TLS证书
@@ -130,7 +134,7 @@ openssl x509 -req -in server_req.pem -out server_cert.pem \
 ```
 server {
 
-	# 监听443端口，启用SSL
+    # 监听443端口，启用SSL
     listen 443 ssl;
 
     # 配置域名
@@ -210,8 +214,6 @@ curl -v --cacert /path/to/ca_cert.pem https://foo.bar/
 ### 配置Local v2ray
 
 > 这里只列出必要的配置，其他配置项可根据实际需求增加/调整。
-
-假定
 
 ```
 {
