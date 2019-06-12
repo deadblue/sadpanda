@@ -27,7 +27,7 @@
 
 ### 规划配置
 
-在配置前期，需要准备/规划好如下内容：
+在进行配置前，需要准备/规划好如下内容：
 
 * 服务器域名，这里假定是`foo.bar`
 * 转发到v2ray的URL Path，这里假定是`/wsray`
@@ -49,7 +49,7 @@ openssl genrsa -out ca_key.pem 4096
 openssl req -new -out ca_req.pem -key ca_key.pem
 
 # 签发CA证书
-x509 -req -in ca_req.pem -out ca_cert.pem \
+openssl x509 -req -in ca_req.pem -out ca_cert.pem \
 -signkey ca_key.pem -days 3650
 ```
 
