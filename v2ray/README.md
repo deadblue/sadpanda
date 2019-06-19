@@ -60,7 +60,7 @@ openssl x509 -req -in ca_req.pem -out ca_cert.pem \
 openssl genrsa -out server_key.pem 1024
 
 # 生成Server证书申请
-# 会提示输入一些信息，"Country Name"需要填写Server域名，即"foo.bar"，其他随意
+# 会提示输入一些信息，"Common Name"需要填写Server域名，即"foo.bar"，其他随意
 openssl req -new -out server_req.pem -key server_key.pem
 
 # 签发Server证书
