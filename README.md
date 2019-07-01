@@ -4,4 +4,4 @@
 
 ---
 
-All the contents in this repository is writen by knocking the keyboard randomly, so I don't know what that means.
+All the contents in this repository is writen by a cat who walked through my keyboard, so I don't know what that means.
